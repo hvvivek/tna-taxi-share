@@ -5,12 +5,19 @@ public class Node {
 	private int id;
 	private ArrayList<Node> Heads = new ArrayList<Node>();
 	private ArrayList<Node> Tails = new ArrayList<Node>();
-	
-	//Overriding Constructor
+	private ArrayList<Arc> OArc = new ArrayList<Arc>();
+	private ArrayList<Arc> IArc = new ArrayList<Arc>();
+
+	//////////////////////////
+	//Overriding Constructor//
+	//////////////////////////
 	Node(int ID){
 		this.setID(ID);
 	}
-	//GET Functions:
+	
+	///////////////////
+	//GET Functions:///
+	///////////////////
 	public Integer getID(){
 		//returns Node ID
 		return id;
@@ -24,7 +31,9 @@ public class Node {
 		return Tails;
 	}
 	
-	//SET Functions:
+	//////////////////
+	//SET Functions://
+	//////////////////
 	public void setID(int ID){
 		//sets ID
 		id = ID;
@@ -37,8 +46,19 @@ public class Node {
 		//adds node to Tails
 		Tails.add(T);
 	}
+	public void addOArc(Arc arc) {
+		// TODO Auto-generated method stub
+		this.OArc.add(arc);
+	}
+
+	public void addIArc(Arc arc) {
+		// TODO Auto-generated method stub
+		this.IArc.add(arc);
+	}
 	
-	//Helper Functions
+	////////////////////
+	//Helper Functions//
+	////////////////////
 	public boolean checkLink(Node L){
 		for(Node N: Heads){
 			if (L.getID() == N.getID()) {
@@ -47,5 +67,7 @@ public class Node {
 		}
 		return false;
 	}
+
+	
 	
 }

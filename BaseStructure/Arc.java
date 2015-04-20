@@ -13,7 +13,6 @@ public class Arc {
 	//Overriding Constructors//
 	///////////////////////////
 	Arc(int ID){
-		
 		this.setID(ID);
 	}
 	
@@ -78,10 +77,12 @@ public class Arc {
 	public void setHead(Node h) {
 		// TODO Auto-generated method stub
 		Head = h;
+		h.addOArc(this);
 	}
 	public void setTail(Node t) {
 		// TODO Auto-generated method stub
 		Tail = t;
+		t.addIArc(this);
 	}
 	
 	////////////////////
