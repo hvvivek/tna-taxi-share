@@ -7,6 +7,9 @@ public class Node {
 	private ArrayList<Node> Tails = new ArrayList<Node>();
 	private ArrayList<Arc> OArc = new ArrayList<Arc>();
 	private ArrayList<Arc> IArc = new ArrayList<Arc>();
+	private int[] distMatrix;
+	private int[] timeMatrix;
+	private Location L;
 
 	//////////////////////////
 	//Overriding Constructor//
@@ -38,6 +41,9 @@ public class Node {
 		//sets ID
 		id = ID;
 	}
+	public void setDistMatrix(int[] distMatrix) {
+		this.distMatrix = distMatrix;
+	}
 	public void addHead(Node H){
 		//adds a node to Heads
 		Heads.add(H);
@@ -50,7 +56,9 @@ public class Node {
 		// TODO Auto-generated method stub
 		this.OArc.add(arc);
 	}
-
+	public void setTimeMatrix(int[] timeMatrix) {
+		this.timeMatrix = timeMatrix;
+	}
 	public void addIArc(Arc arc) {
 		// TODO Auto-generated method stub
 		this.IArc.add(arc);
@@ -68,6 +76,19 @@ public class Node {
 		return false;
 	}
 
-	
-	
+	public int getDistMatrix(int a) {
+		return distMatrix[a];
+	}
+
+	public int getTimeMatrix(int a) {
+		return timeMatrix[a];
+	}
+
+	public Location getLocation() {
+		return L;
+	}
+
+	public void setLocation(Location l) {
+		L = l;
+	}
 }

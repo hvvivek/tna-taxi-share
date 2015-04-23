@@ -3,7 +3,8 @@ package BaseStructure;
 public class Arc {
 	
 	private int id;
-	private int cost;
+	private double dcost;
+	private int tcost;
 	private Node Head;
 	private Node Tail;
 	private int lc;
@@ -22,12 +23,13 @@ public class Arc {
 		H.addTail(T);
 		T.addHead(H);
 	}
-	Arc(Node H, Node T, int C){
+	Arc(Node H, Node T, int TC){
 		this.setHead(H);
 		this.setTail(T);
 		H.addTail(T);
 		T.addHead(H);
-		this.setCost(C);
+		this.setDCost();
+		this.setTCost(TC);
 		this.setLC(0);
 		this.setUC(1000);
 	}
@@ -39,8 +41,11 @@ public class Arc {
 	public Integer getID(){
 		return id;
 	}
-	public Integer getCost(){
-		return cost;
+	public double getDC(){
+		return dcost;
+	}
+	public Integer getTC(){
+		return tcost;
 	}
 	public Node getHead(){
 		return Head;
@@ -62,9 +67,13 @@ public class Arc {
 		// TODO Auto-generated method stub
 		id = ID;
 	}
-	public void setCost(int c) {
+	public void setDCost() {
 		// TODO Auto-generated method stub
-		cost = c;
+		dcost = Math.sqrt(Math.pow(this.Head.getLocation().getLatitude(), 2) + Math.pow(this.Head.getLocation().getLongitude(), 2)) ;
+	}
+	public void setTCost(int c) {
+		// TODO Auto-generated method stub
+		tcost = c;
 	}
 	public void setLC(int LC) {
 		// TODO Auto-generated method stub
