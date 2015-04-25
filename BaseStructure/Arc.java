@@ -69,7 +69,13 @@ public class Arc {
 	}
 	public void setDCost() {
 		// TODO Auto-generated method stub
-		dcost = Math.sqrt(Math.pow(this.Head.getLocation().getLatitude(), 2) + Math.pow(this.Head.getLocation().getLongitude(), 2)) ;
+		//dcost = Math.sqrt(Math.pow(this.Head.getLocation().getLatitude(), 2) + Math.pow(this.Head.getLocation().getLongitude(), 2)) ;
+		double phi1 = Math.toRadians(this.Head.getLocation().getLatitude());
+		double phi2 = Math.toRadians(this.Tail.getLocation().getLatitude());
+		double lambda = Math.toRadians(this.Tail.getLocation().getLongitude() - this.Head.getLocation().getLongitude());
+		double R = 6371000;
+		dcost = Math.acos(Math.sin(phi1)*Math.sin(phi2) + Math.cos(phi1)* Math.cos(phi2)*Math.cos(lambda)) * R;
+		//System.out.println("Distance is: " + dcost);
 	}
 	public void setTCost(int c) {
 		// TODO Auto-generated method stub

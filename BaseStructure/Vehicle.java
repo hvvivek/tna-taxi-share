@@ -5,7 +5,6 @@ public class Vehicle {
 	private Node prevNode;
 	private Node nextNode;
 	private Node currentNode;
-	private int t;
 	Path P = null;
 	Location L;
 	
@@ -54,7 +53,7 @@ public class Vehicle {
 		if(this.P == null){
 			this.P = p;
 			this.setNextNode(P.getPath().getFirst());
-			this.runPath();
+			this.setPrevNode(this.getCurrentNode());
 		}
 		else{
 			while(this.P.getPath().getLast()!=this.getNextNode()){
@@ -65,18 +64,10 @@ public class Vehicle {
 		
 	}
 	
-	private void runPath() {
-		this.setPrevNode(this.getCurrentNode());
-		while(this.getNextNode()!=null){
-			try {
-		        while (true) {
-		            this.updateLocation();
-		            Thread.sleep(5 * 1000);
-		            this.printPosition();
-		        }
-		    } catch (InterruptedException e) {
-		        e.printStackTrace();
-		    }
+	public void runPath() {
+		if(this.getNextNode()!=null){
+            this.updateLocation();
+            this.printPosition();
 		}
 		
 	}
@@ -86,15 +77,19 @@ public class Vehicle {
 		System.out.println("Current Position of Vehicle" + this.getID() + " is " + this.L.getLatitude() + ", " + this.L.getLongitude());
 	}
 
-	private void updateLocation() {
+	void updateLocation() {
 		// TODO Auto-generated method stub
 		double t = this.prevNode.getTimeMatrix(this.getNextNode().getID());
 		
 		if(this.L.getLatitude() == this.getNextNode().getLocation().getLatitude() && this.L.getLongitude() == this.getNextNode().getLocation().getLongitude()){
 			this.setCurrentNode(this.getNextNode());
 			this.setPrevNode(this.getNextNode());
-			this.P.getPath().removeFirst();
+			
 			if(this.P.getPath().size()>0){
+				this.P.getPath().removeFirst();
+			}
+			if(this.P.getPath().size()>0){
+				System.out.println(P.getPath().size() +">0" );
 				this.setNextNode(this.P.getPath().getFirst());
 				this.updateLocation();
 			}

@@ -19,7 +19,9 @@ public class Network {
 			Arcs.get(i).getTail().addOArc(Arcs.get(i));
 			Arcs.get(i).getTail().addHead(Arcs.get(i).getHead());
 		}
+		this.precompute();
 	}
+	
 	public ArrayList<Node> getNodes() {
 		return Nodes;
 	}
@@ -39,6 +41,11 @@ public class Network {
 	
 	public void addArc(Node n){
 		this.Nodes.add(n);
+	}
+	private void precompute() {
+		// TODO Create Node - Node - Incidence Matrices 
+		// TODO Precompute distance and time matrices
+		
 	}
 	
 }

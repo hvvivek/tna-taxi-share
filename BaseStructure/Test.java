@@ -1,12 +1,15 @@
 package BaseStructure;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Test {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		//Input I = new Input();
 		// TODO Auto-generated method stub
-		Node A = new Node(0);
+		/*Node A = new Node(0);
 		Node B = new Node(1);
 		Node C = new Node(2);
 		
@@ -37,8 +40,23 @@ public class Test {
 		
 		Vehicle V1 = new Vehicle(1,A);
 		Vehicle V2 = new Vehicle(2,B);
-		V1.setPath(P);
-		V2.setPath(P);
+		Vehicle V3 = new Vehicle(3,C);
+
+		V1.setPath(P);V2.setPath(P);
+		ArrayList<Node> N = new ArrayList<Node>();
+		N.add(A);N.add(B);N.add(C);
+		ArrayList<Arc> Z = new ArrayList<Arc>();
+		
+		Network G = new Network(N,Z);
+		G.Taxis.add(V1);
+		Thread t = new Thread(new SystemSimulator(G));
+		t.start();
+		
+		System.out.println("Interrupt");
+		G.Taxis.add(V2);
+		G.Taxis.add(V3);
+		V3.setPath(P);
+		*/
 	}
 
 }
