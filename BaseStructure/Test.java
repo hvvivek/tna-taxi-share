@@ -1,12 +1,17 @@
 package BaseStructure;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Test {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(Test.class.getResourceAsStream("inputFile.dat")));
+		System.out.println("Hello");
+		
 		//Input I = new Input();
 		// TODO Auto-generated method stub
 		/*Node A = new Node(0);

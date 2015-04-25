@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
-		Input I = new Input("InputFile.dat");
+		Input I = new Input("inputFile.dat");
 		Network G = new Network(I.getNodeList(), I.getArcList());
 	}
 

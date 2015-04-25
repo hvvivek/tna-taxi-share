@@ -2,6 +2,7 @@ package BaseStructure;
 
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,9 +19,11 @@ public class Input {
     	System.out.print("Reading input file...");
 
 		//Imports Input data file
+    	URL path = ClassLoader.getSystemResource(s);
+    	
 		FileReader in = null;
-		in = new FileReader("/Users/vivek/Documents/Java/Check/src/" + s);
-		BufferedReader reader = new BufferedReader(in);
+		//in = new FileReader("/Users/vivek/Documents/Java/Check/src/" + s);
+		BufferedReader reader = new BufferedReader(new InputStreamReader(Input.class.getResourceAsStream(s)));
 		String line;
     	System.out.println("Completed.");
 		
